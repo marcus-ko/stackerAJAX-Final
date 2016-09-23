@@ -155,18 +155,17 @@ var showError = function(error){
 
 // takes a string of semi-colon separated tags to be searched
 // for on StackOverflow
-var getAnswerer = function(tags) {
+var getAnswerer = function(answered) {
 	
 	// the parameters we need to pass in our request to StackOverflow's API
 	var request = { 
-		
+		tagged: answered,
 		site: 'stackoverflow',
-
-	
+		order: 'desc',
 	};
 	
 	$.ajax({
-		url: "http://api.stackexchange.com/2.2/tags/" + tags + "/top-answerers/all_time",
+		url: "http://api.stackexchange.com/2.2/tags/" + answered + "/top-answerers/all_time",
 		data: request,
 		dataType: "jsonp",//use jsonp to avoid cross origin issues
 		type: "GET",
@@ -196,8 +195,8 @@ $(document).ready( function() {
 		// zero out results if previous search has run
 		$('.results').html('');
 		// get the value of the tags the user submitted
-		var tags = $(this).find("input[name='tags']").val();
-		getAnswerer(tags);
+		var answered = $(this).find("input[name='answerers']").val();
+		getAnswerer(answered);
 	});
 });
 
