@@ -1,5 +1,4 @@
-// this function takes the question object returned by the StackOverflow request
-// and returns new result to be appended to DOM
+
 var showQuestion = function(question) {
 	
 	// clone our result template code
@@ -162,6 +161,7 @@ var getAnswerer = function(tags) {
 	var request = { 
 		
 		site: 'stackoverflow',
+
 	
 	};
 	
