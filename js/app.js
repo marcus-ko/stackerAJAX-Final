@@ -142,9 +142,9 @@ var showAnswerer = function(answerer) {
 
 // this function takes the results object from StackOverflow
 // and returns the number of results and tags to be appended to DOM
-var showSearchResults = function(query, resultNum) {
-	var results = resultNum + ' results for <strong>' + query + '</strong>';
-	return results;
+var showSearchResults2 = function(query, resultNum) {
+	var results2 = resultNum + ' results for <strong>' + query + '</strong>';
+	return results2;
 };
 
 // takes error string and turns it into displayable DOM element
@@ -173,9 +173,9 @@ var getAnswerer = function(tags) {
 	})
 
 	.done(function(result){ //this waits for the ajax to return with a succesful promise object
-		var searchResults = showSearchResults(request.tagged, result.items.length);
+		var searchResults2 = showSearchResults2(request.tagged, result.items.length);
 
-		$('.search-results').html(searchResults);
+		$('.search-results').html(searchResults2);
 		//$.each is a higher order function. It takes an array and a function as an argument.
 		//The function is executed once for each item in the array.
 		$.each(result.items, function(i, item) {
